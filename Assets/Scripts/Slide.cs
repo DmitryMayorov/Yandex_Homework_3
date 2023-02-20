@@ -46,6 +46,7 @@ public class Slide : MonoBehaviour
     void Update()
     {
         Vector2 alongSurface = Vector2.Perpendicular(_groundNormal);
+
         if (_platform != null)
         {
             if (_platform.transform.rotation.z < 0)
@@ -59,10 +60,8 @@ public class Slide : MonoBehaviour
 
             if (_platform.tag == "Ground")
             {
-                if (Input.GetKeyDown(KeyCode.Q))
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    print("fsesesf");
-
                     transform.position += new Vector3(0.5f, 0.5f ,0);
                 }
             }
