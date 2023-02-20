@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 32116136}
   m_Layer: 0
   m_Name: Platform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,7 +154,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.13903373, y: -0.38417998}
+  m_Offset: {x: -0.1390338, y: -0.5640661}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -165,7 +165,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.8248124, y: 0.23164004}
+  m_Size: {x: 2.8248124, y: 0.5914123}
   m_EdgeRadius: 0
 --- !u!50 &32116137
 Rigidbody2D:
@@ -175,14 +175,14 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 32116135}
-  m_BodyType: 2
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -385,6 +385,7 @@ GameObject:
   - component: {fileID: 1466062165}
   - component: {fileID: 1466062164}
   - component: {fileID: 1466062166}
+  - component: {fileID: 1466062167}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -472,7 +473,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1466062160}
   m_LocalRotation: {x: 0, y: 0, z: -0.3420201, w: 0.9396927}
-  m_LocalPosition: {x: -0.604, y: 0.633, z: 0}
+  m_LocalPosition: {x: -0.78, y: 0.753, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -494,12 +495,12 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0.05
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!61 &1466062165
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -540,8 +541,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minGroundNormalY: 0.65
   _gravityModifier: 1
-  _velocity: {x: 0, y: 0}
+  _velocity: {x: 0.19, y: 0.06}
   _layerMask:
     serializedVersion: 2
-    m_Bits: 0
-  _speed: 0
+    m_Bits: 1
+  _speed: 1
+--- !u!58 &1466062167
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466062160}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.25}
+  serializedVersion: 2
+  m_Radius: 0.012677938

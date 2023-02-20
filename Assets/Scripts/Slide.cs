@@ -11,6 +11,7 @@ public class Slide : MonoBehaviour
     [SerializeField] private float _speed;
 
     private Rigidbody2D _rb2d;
+    private GameObject _platform;
 
     private Vector2 _groundNormal;
     private Vector2 _targetVelocity;
@@ -34,11 +35,38 @@ public class Slide : MonoBehaviour
         _contactFilter.useLayerMask = true;
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Ground")
+        {
+            _platform = collision.gameObject;
+        }
+    }
+
     void Update()
     {
         Vector2 alongSurface = Vector2.Perpendicular(_groundNormal);
+        if (_platform != null)
+        {
+            if (_platform.transform.rotation.z < 0)
+            {
+                _targetVelocity = alongSurface * -_speed;
+            }
+            else
+            {
+                _targetVelocity = alongSurface * _speed;
+            }
 
-        _targetVelocity = alongSurface * _speed;
+            if (_platform.tag == "Ground")
+            {
+                if (Input.GetKeyDown(KeyCode.Q))
+                {
+                    print("fsesesf");
+
+                    transform.position += new Vector3(0.5f, 0.5f ,0);
+                }
+            }
+        }
     }
 
     void FixedUpdate()
