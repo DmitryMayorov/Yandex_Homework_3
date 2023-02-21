@@ -11,7 +11,10 @@ public class Slide : MonoBehaviour
     [SerializeField] private float _speed;
 
     private Rigidbody2D _rb2d;
+
     private GameObject _platform;
+
+    private Vector3 VectorForJump = new Vector3(0.5f, 0.5f, 0);
 
     private Vector2 _groundNormal;
     private Vector2 _targetVelocity;
@@ -37,10 +40,7 @@ public class Slide : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Ground")
-        {
-            _platform = collision.gameObject;
-        }
+        _platform = collision.gameObject;
     }
 
     void Update()
@@ -58,12 +58,10 @@ public class Slide : MonoBehaviour
                 _targetVelocity = alongSurface * _speed;
             }
 
-            if (_platform.tag == "Ground")
+            
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    transform.position += new Vector3(0.5f, 0.5f ,0);
-                }
+                transform.position += VectorForJump;
             }
         }
     }
